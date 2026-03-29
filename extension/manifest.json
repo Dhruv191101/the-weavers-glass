@@ -15,8 +15,14 @@
   "background": {
     "service_worker": "background.js"
   },
+  "icons": {
+    "16": "assets/logo16.png",
+    "48": "assets/logo48.png",
+    "128": "assets/logo128.png"
+  },
   "action": {
     "default_popup": "popup.html",
+    "default_icon": "assets/logo48.png",
     "default_title": "The Weaver's Glass"
   },
   "content_scripts": [

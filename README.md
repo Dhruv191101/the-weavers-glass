@@ -1,4 +1,5 @@
 # 🔍 The Weaver's Glass
+<img src="extension/assets/logo128.png" alt="Weaver's Glass Logo" width="128" height="128" />
 
 **The Weaver's Glass** is a powerful Manifest V3 Chrome Extension and FastAPI backend suite that allows developers to precisely extract, clone, and map UI elements from any modern webpage.
 

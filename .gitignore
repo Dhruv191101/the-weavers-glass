@@ -1,0 +1,6 @@
+__pycache__/
+*.sqlite
+*.db
+.pytest_cache/
+node_modules/
+.env

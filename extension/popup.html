@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Weaver's Glass</title>
+  <link rel="stylesheet" href="popup.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="glass-container">
+    <header class="header">
+      <div class="logo">
+        <span class="gradient-text">Weaver's Glass</span>
+      </div>
+      <button id="captureToggle" class="btn primary-btn">
+        <span class="icon">🔍</span> Capture Mode
+      </button>
+    </header>
+
+    <main class="gallery" id="galleryContainer">
+      <!-- Snippets will be injected here via JS -->
+      <div class="loading">Loading your collection...</div>
+    </main>
+
+    <!-- Onboarding Intro Modal -->
+    <div id="introModal" class="intro-modal hidden">
+      <div class="modal-content">
+        <h2>Welcome to The Weaver's Glass ✨</h2>
+        <p>Your ultimate UI component extractor.</p>
+        <ul class="guide-list">
+          <li><strong>Extract:</strong> Press <code>Ctrl+Shift+U</code> or click 'Capture Mode' to begin snapping.</li>
+          <li><strong>Navigate:</strong> Coming soon: Use <code>Up / Down Arrows</code> to expand or shrink your selection box with precision!</li>
+          <li><strong>Clone:</strong> Instantly copy isolated HTML & CSS.</li>
+        </ul>
+        <button id="startWeavingBtn" class="btn primary-btn btn-large" style="justify-content: center; width: 100%; margin-top: 10px;">
+          Start Weaving!
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

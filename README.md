@@ -26,12 +26,17 @@ Armed with a specialized Deep DOM Extraction Engine, it instantly captures visua
 
 ### 1. The Sanctuary (Backend API)
 The backend is built with Python 3, FastAPI, and SQLAlchemy. It listens on port 8000.
-1. Navigate to the `backend/` directory.
+
+1. Open your terminal at the root of the project and navigate into the `backend/` folder:
+   ```bash
+   cd backend
+   ```
 2. Install the lightweight dependencies: 
    ```bash
-   pip install fastapi uvicorn sqlalchemy pydantic
+   pip install -r requirements.txt
    ```
-3. Start the server (it will automatically generate your `weavers_glass.db`):
+   *(Or manually: `pip install fastapi uvicorn sqlalchemy pydantic`)*
+3. Start the server (it will automatically generate your `weavers_glass.db` logger):
    ```bash
    python -m uvicorn main:app --port 8000
    ```

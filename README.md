@@ -31,15 +31,26 @@ The backend is built with Python 3, FastAPI, and SQLAlchemy. It listens on port 
    ```bash
    cd backend
    ```
-2. Install the lightweight dependencies: 
+2. **(Crucial for Mac/Linux)** Create and activate a Python virtual environment to prevent module path errors:
+   - **Mac/Linux:**
+     ```bash
+     python3 -m venv venv
+     source venv/bin/activate
+     ```
+   - **Windows:**
+     ```bash
+     python -m venv venv
+     venv\Scripts\activate
+     ```
+3. Install the lightweight dependencies into your environment: 
    ```bash
    pip install -r requirements.txt
    ```
-   *(Or manually: `pip install fastapi uvicorn sqlalchemy pydantic`)*
-3. Start the server (it will automatically generate your `weavers_glass.db` logger):
+4. Start the server (it will automatically generate your local database):
    ```bash
    python -m uvicorn main:app --port 8000
    ```
+   *(Mac/Linux users may need to use `python3` instead of `python`)*
 
 ### 2. The Lens (Chrome Extension)
 1. Open Google Chrome and navigate to `chrome://extensions/`.

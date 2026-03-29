@@ -14,6 +14,13 @@ Armed with a specialized Deep DOM Extraction Engine, it instantly captures visua
 
 ---
 
+## 🌍 Platform Compatibility
+**The Weaver's Glass** is completely cross-platform! 
+- **The Extension** runs natively on Windows, macOS, and Linux within Google Chrome or any Chromium-based browser (Brave, Edge).
+- **The Backend API** is built in OS-agnostic Python and works flawlessly across all operating systems.
+
+---
+
 ## 🚀 Installation & Usage
 
 ### 1. The Sanctuary (Backend API)
@@ -37,7 +44,7 @@ The backend is built with Python 3, FastAPI, and SQLAlchemy. It listens on port 
 ### 3. Start Weaving!
 1. Start the FastAPI server.
 2. Navigate to your favorite styled webpage.
-3. Click the extension icon and hit the **Capture Mode** button (or press `Ctrl+Shift+U`).
+3. Click the extension icon and hit the **Capture Mode** button (or press `Ctrl+Shift+U` on Windows / `Cmd+Shift+U` on macOS).
 4. Hover your mouse over any beautiful UI element to highlight it in glassmorphic neon.
 5. *(Optional)* Use your Up and Down keyboard arrow keys to precisely adjust the depth of the selection container!
 6. Click to flawlessly extract the component.

@@ -10,7 +10,7 @@ Armed with a specialized Deep DOM Extraction Engine, it instantly captures visua
 - **Deep CSS DOM Extraction**: Recursively traverses nested child elements and filters 60+ critical layout properties to guarantee a 1:1 visually perfect replication.
 - **Precision Targeting**: Seamlessly navigate nested HTML container trees using `ArrowUp` and `ArrowDown` keyboard shortcuts with an active visual breadcrumb HUD.
 - **React & Tailwind Compilers**: Instantly copy your captured element as a perfectly formatted React functional component, or inject extracted styles directly into tags using a heuristic Tailwind CSS JIT mapper. 
-- **1-Click CodePen Exporting**: A lightweight API bridge that wraps your captured component and dynamically POSTs it to a fresh CodePen sandbox in a single click.
+- **Live Preview & Download**: Instantly preview your captured component in a new browser tab, or download it as a standalone `.html` file — no third-party services, works 100% offline.
 - **Visual Local Storage**: Persists high-fidelity screenshot thumbnails alongside your UI code using Chrome's native Canvas API combined with an asynchronous local SQLite database.
 
 ---
@@ -65,7 +65,7 @@ The backend is built with Python 3, FastAPI, and SQLAlchemy. It listens on port 
 4. Hover your mouse over any beautiful UI element to highlight it in glassmorphic neon.
 5. *(Optional)* Use your Up and Down keyboard arrow keys to precisely adjust the depth of the selection container!
 6. Click to flawlessly extract the component.
-7. Open your gallery to view, copy React/Tailwind code, or ship it directly to CodePen!
+7. Open your gallery to view, copy React/Tailwind code, live-preview the component, or download it as a standalone HTML file!
 
 ---
 

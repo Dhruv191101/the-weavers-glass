@@ -277,32 +277,40 @@ body {
 .code-btn:active {
   transform: scale(0.95);
 }
-
-.codepen-btn {
+.export-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
   margin-top: 8px;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.1);
+}
+
+.preview-btn, .download-btn {
+  background: rgba(255, 255, 255, 0.06);
   border: 1px solid var(--glass-border);
-  color: #fff;
-  padding: 8px 12px;
+  color: #e6edf3;
+  padding: 8px 10px;
   border-radius: 6px;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+  text-align: center;
 }
 
-.codepen-btn:hover {
-  background: rgba(0, 255, 170, 0.2);
+.preview-btn:hover {
+  background: rgba(0, 255, 170, 0.15);
   border-color: var(--accent);
   color: var(--accent);
-  box-shadow: 0 0 10px rgba(0, 255, 170, 0.2);
+  box-shadow: 0 0 12px rgba(0, 255, 170, 0.15);
 }
 
-.codepen-btn:active {
-  transform: scale(0.98);
+.download-btn:hover {
+  background: rgba(99, 179, 237, 0.15);
+  border-color: #63b3ed;
+  color: #63b3ed;
+  box-shadow: 0 0 12px rgba(99, 179, 237, 0.15);
+}
+
+.preview-btn:active, .download-btn:active {
+  transform: scale(0.96);
 }

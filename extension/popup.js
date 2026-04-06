@@ -148,7 +148,10 @@ document.addEventListener("DOMContentLoaded", () => {
               <button class="code-btn" data-type="react" data-id="${snippet.id}">React</button>
               <button class="code-btn" data-type="tailwind" data-id="${snippet.id}">Tailwind</button>
             </div>
-            <button class="codepen-btn" data-id="${snippet.id}">🚀 Open in CodePen</button>
+            <div class="export-actions">
+              <button class="preview-btn" data-id="${snippet.id}">🔬 Live Preview</button>
+              <button class="download-btn" data-id="${snippet.id}">💾 Download</button>
+            </div>
           </div>
         </div>
       `;
@@ -181,36 +184,50 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       });
 
-      // CodePen logic
-      const cpBtn = card.querySelector(".codepen-btn");
-      if (cpBtn) {
-        cpBtn.addEventListener("click", () => {
-          const cpData = {
-            title: snippet.displayName + " (Weaver's Glass)",
-            description: "Automatically mapped and extracted via Weaver's Glass",
-            html: snippet.html_content,
-            css: snippet.css_content,
-            editors: "110" // 1 HTML, 1 CSS, 0 JS visible
-          };
-          
-          const form = document.createElement("form");
-          form.method = "POST";
-          form.action = "https://codepen.io/pen/define";
-          form.target = "_blank";
-          form.style.display = "none";
-          
-          const input = document.createElement("input");
-          input.type = "hidden";
-          input.name = "data";
-          // Properly escape quotations for the value attribute
-          input.value = JSON.stringify(cpData).replace(/"/g, "&quot;").replace(/'/g, "&apos;");
-          
-          form.appendChild(input);
-          document.body.appendChild(form);
-          form.submit();
-          
-          // Cleanup
-          setTimeout(() => form.remove(), 100);
+      // Build standalone HTML document for preview/download
+      const buildStandaloneHTML = (s) => `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${s.displayName} — Weaver's Glass Extract</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #0d1117; font-family: system-ui, sans-serif; padding: 40px; }
+    .wg-preview-wrapper { position: relative; }
+    ${s.css_content}
+  </style>
+</head>
+<body>
+  <div class="wg-preview-wrapper">
+    ${s.html_content}
+  </div>
+</body>
+</html>`;
+
+      // Live Preview — opens component in a new tab via blob URL
+      const previewBtn = card.querySelector(".preview-btn");
+      if (previewBtn) {
+        previewBtn.addEventListener("click", () => {
+          const htmlDoc = buildStandaloneHTML(snippet);
+          const blob = new Blob([htmlDoc], { type: "text/html" });
+          const url = URL.createObjectURL(blob);
+          chrome.tabs.create({ url });
+        });
+      }
+
+      // Download — saves as standalone .html file
+      const dlBtn = card.querySelector(".download-btn");
+      if (dlBtn) {
+        dlBtn.addEventListener("click", () => {
+          const htmlDoc = buildStandaloneHTML(snippet);
+          const blob = new Blob([htmlDoc], { type: "text/html" });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = `${snippet.displayName}_weaver.html`;
+          a.click();
+          URL.revokeObjectURL(url);
         });
       }
 
